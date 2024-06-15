@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My First Paragraph</p>
+
+<p id="demo"></p>
+
+<script>
+	// Function to check whether a distance is
+   // keeping all the cows in the barn
+function ok(v, x, c) {
+     let n = v.length;
+     
+     let count = 1;
+     let d = v[0];
+     
+     for (let i = 1; i < n; i++) {
+       if (v[i] - d >= x) {
+         d = v[i];
+         
+         count++;
+         
+         
+       }
+       else {
+         continue;
+       }
+     }
+     if (count >= c) {
+       return true;
+     }
+     return false;
+   }
+ 
+   // Function to find the maximum possible
+   // minimum distance between two cows
+   function aggressive_cows(v, n, k) {
+   	
+     let ans = -1;
+     let maxi = 0;
+     for (let i = 0; i < n; i++) {
+       maxi = Math.max(maxi, v[i]);
+       
+     }
+ 
+     // Loop from 1 to max limit of the
+     // barn length (here = 10^9)
+     for (let i = 1; i <= maxi; i++) {
+       if (ok(v, i, k)) {
+         ans = i;
+         console.log(ans)
+       }
+       else {
+         break;
+       }
+     }
+ 
+     return ans;
+   }
+ 
+   // Driver code
+ 
+   let K = 3;
+   let arr = [1, 2, 4, 8, 9];
+   let N = arr.length;
+ 
+   // Function call
+   let ans = aggressive_cows(arr, N, K);
+   console.log(ans);
+ 
+// This code is contributed by Potta Lokesh
+</script>
+
+</body>
+</html>

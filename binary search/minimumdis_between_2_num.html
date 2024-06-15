@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My First Paragraph</p>
+
+<p id="demo"></p>
+<script>
+
+// Javascript program to find the minimum
+// distance between two numbers
+function minDist(arr, n, x, y)
+{
+	var i, j;
+	var min_dist = Number.MAX_VALUE;
+	console.log(min_dist)
+	for(i = 0; i < n; i++)
+	{
+		for(j = i + 1; j < n; j++) 
+		{
+			if ((x == arr[i] && y == arr[j] || 
+				y == arr[i] && x == arr[j]) && 
+				min_dist > Math.abs(i - j))
+				min_dist = Math.abs(i - j);
+		}
+	}
+	if(min_dist>n)
+	{
+		return -1;
+	}
+	return min_dist;
+}
+
+// Driver code
+var arr = [ 3, 5, 4, 2, 6, 5, 
+			6, 6, 5, 4, 8, 3 ];
+var n = arr.length;
+var x = 3;
+var y = 6;
+
+document.write("Minimum distance between " + x +
+			" and " + y + " is " +
+			minDist(arr, n, x, y));
+
+// This code is contributed by gauravrajput1 
+
+</script>
+
+</body>
+</html>

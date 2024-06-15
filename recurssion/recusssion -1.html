@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Web Page</h1>
+<p>My First Paragraph</p>
+
+<p id="demo"></p>
+<!-- Given an integer array containing digits from [0, 9], the task is to print all possible letter combinations that the numbers could represent. 
+
+A mapping of digit to letters (just like on the telephone buttons) is being followed. Note that 0 and 1 do not map to any letters. All the mapping are shown in the image below: -->
+
+<!-- Example
+Input: arr[] = {2, 3} 
+Output: ad ae af bd be bf cd ce cf
+
+Input: arr[] = {9} 
+Output: w x y z  -->
+
+<script>
+
+	function letterCombinations(digits) {
+     
+    if(digits == ""){
+        return [];
+    }
+    let table = [ '0','1','abc','def','ghi','jkl','mno','pqrs','tuv','wxyz'];
+     
+    let res =[];
+    let que = [''];
+     
+    while(que.length>0){
+    	console.log(que);
+        let str = que[0];
+        console.log (str);
+        que.shift();
+         
+        if(str.length == digits.length){
+            res.push(str); // if all digits are replaced with char push to result
+        } else{
+//             get the current number from the digits i.e if str.length = 2 , digits =123 s= 3
+            let s= Number(digits.charAt(str.length));
+            console.log (s);
+            let val = table[s]; // get char from the table i.e def for s =3
+             console.log(val);
+            for(i=0;i<val.length;i++){
+                que.push(str+val.charAt(i));
+                console.log(que);
+            }
+        }
+    }
+     
+    return res;
+     
+}
+ 
+  // Driver code
+    let str = "23";
+    document.write(letterCombinations(str)); 
+</script>
+
+
+</body>
+</html>
